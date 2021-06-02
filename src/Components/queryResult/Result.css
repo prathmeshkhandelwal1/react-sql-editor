@@ -1,0 +1,29 @@
+.resultContainer{
+    box-sizing: border-box;
+    /* padding: 20px 10px; */
+    margin-top: 20px;
+    width: 50vw;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+}
+
+.headList{
+    list-style: none;
+    display: flex;
+    width: 640px;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.list-container{
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.list-item{
+    width: 128px;
+    text-align: left;
+}

@@ -1,0 +1,23 @@
+.Nav{
+    width: 100vw;
+    
+    height: 80px;
+    align-items: center;
+    background-color: #0a81ab;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.list{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.list li{
+    cursor: pointer;
+}

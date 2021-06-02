@@ -1,0 +1,15 @@
+.page{
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page p{
+    color: gray;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-style: italic;
+}
