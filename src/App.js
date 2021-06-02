@@ -14,17 +14,20 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [result, setResult] = useState(null);
-  const [err,setErr] = useState(null)
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
     if (data) {
-      alasql.promise(query, [data]).then(function (data) {
-        setData(null);
-        setResult(data);
-      }).catch((e)=>{
-        console.log(e)
-        setErr(e)
-      })
+      alasql
+        .promise(query, [data])
+        .then(function (data) {
+          setData(null);
+          setResult(data);
+        })
+        .catch((e) => {
+          console.log(e);
+          setErr(e);
+        });
     }
   });
 
@@ -45,31 +48,71 @@ const App = () => {
       .then((data) => {
         setData(data);
         setLoading(false);
-      }).catch((e)=>{
-        console.log(e)
-        setErr(e)
+      })
+      .catch((e) => {
+        console.log(e);
+        setErr(e);
       });
   };
 
+  function download() {
+    let downloadResults = [];
+    downloadResults.push(Object.keys(result[0]).join(", "));
+    for (let res of result) {
+      downloadResults.push(Object.values(res).join(", "));
+    }
+
+    let blob = new Blob([downloadResults.join("\n")], { type: "text/csv" });
+    let href = window.URL.createObjectURL(blob);
+    let link = document.createElement("a");
+    link.setAttribute("href", href);
+    link.setAttribute("download", "my_data.csv");
+    document.body.appendChild(link);
+    link.click();
+  }
+
   return (
     <>
-    {err?<p>Error</p>:null}
-      <Nav />
+      {err ? <p>Error</p> : null}
+      <Nav download={download} />
       <div style={{ display: "flex" }}>
-        <div>
+        <div style={{height:'90vh', background:'#2C2828'}}>
           <Editor query={query} handleQuery={handleQuery} />
           <div className="tile2">
             <button onClick={onSubmit} className="btn">
               Run
             </button>
             {loading ? <Loader /> : null}
-            
           </div>
-          <p style={{marginLeft:'20px',fontSize:'10px', fontStyle:'italic'}}>*Dummy csv file is used to fetch data.</p>
+          <p
+            style={{
+              marginLeft: "20px",
+              fontSize: "10px",
+              fontStyle: "italic",
+              color: "white",
+            }}
+          >
+            *Dummy csv file is used to fetch data.
+          </p>
         </div>
-        <div style={{display:"flex",justifyContent:'center',alignItems:'center', width:'50vw'}}>
-            {loading ? <Loader /> : result ? <Result result={result} /> : <Page />}
-
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "50vw",
+            background: "#1b1a17"
+          }}
+        >
+          {loading ? (
+            <Loader
+              
+            />
+          ) : result ? (
+            <Result result={result} />
+          ) : (
+            <Page />
+          )}
         </div>
       </div>
     </>

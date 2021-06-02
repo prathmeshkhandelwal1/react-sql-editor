@@ -1,3 +1,5 @@
 .ResultItem input{
     width: 120px;
+    background-color: #26241e;
+    color: rgb(187, 175, 175);
 }

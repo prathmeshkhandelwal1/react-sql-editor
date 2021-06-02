@@ -1,9 +1,9 @@
 .Nav{
     width: 100vw;
     
-    height: 80px;
+    height: 10vh;
     align-items: center;
-    background-color: #0a81ab;
+    background-color: #a35709;
     color: white;
     display: flex;
     align-items: center;

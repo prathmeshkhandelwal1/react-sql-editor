@@ -23,7 +23,27 @@
     overflow-y: scroll;
 }
 
+
+#style-3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #1b1a17;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #a35709;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background-color: #a35709;
+    border-radius: 5px;
+}
+
 .list-item{
     width: 128px;
     text-align: left;
+    color: white;
 }

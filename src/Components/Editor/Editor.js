@@ -1,13 +1,13 @@
 import React from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-sql";
-import "ace-builds/src-noconflict/theme-solarized_dark";
+import "ace-builds/src-noconflict/theme-pastel_on_dark";
 
 const Editor = (props) => {
   return (
     <AceEditor
       mode="sql"
-      theme="solarized_dark"
+      theme="pastel_on_dark"
       onChange={(e) => props.handleQuery(e)}
       name="UNIQUE_ID_OF_DIV"
       editorProps={{ $blockScrolling: true }}
