@@ -53,6 +53,7 @@ const App = () => {
 
   return (
     <>
+    {err?<p>Error</p>:null}
       <Nav />
       <div style={{ display: "flex" }}>
         <div>
