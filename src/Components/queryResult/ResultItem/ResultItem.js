@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import './ResultItem.css'
+import "./ResultItem.css";
 
 class ResultItem extends Component {
   state = {
     customerID: this.props.details.customerID,
-    contactName:this.props.details.contactName,
+    contactName: this.props.details.contactName,
     companyName: this.props.details.companyName,
     country: this.props.details.country,
-    phone: this.props.details.phone
+    phone: this.props.details.phone,
   };
+
+  //sending query for changung data can be done here.
 
   onChangeHandler = (e) => {
     this.setState({

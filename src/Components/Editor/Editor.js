@@ -22,7 +22,6 @@ const Editor = (props) => {
       }}
       fontSize="16px"
       value={props.query}
-      // defaultValue="`SELECT * FROM CSV(?, {headers: true, separator:","})`"
       placeholder="Enter your queries here"
     />
   );

@@ -1,15 +1,15 @@
-.Nav{
+.Nav {
     width: 100vw;
-    
+
     height: 10vh;
     align-items: center;
-    background-color: #a35709;
+    background-color: #962d2d;
     color: white;
     display: flex;
     align-items: center;
 }
 
-.list{
+.list {
     width: 100%;
     list-style: none;
     display: flex;
@@ -18,6 +18,6 @@
     padding: 0;
 }
 
-.list li{
+.list li {
     cursor: pointer;
 }

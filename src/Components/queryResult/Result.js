@@ -16,7 +16,9 @@ function Result(props) {
         <li className="list-item">Country</li>
         <li className="list-item">Phone</li>
       </ul>
-      <div className="list-container" id="style-3">{list}</div>
+      <div className="list-container" id="style-3">
+        {list}
+      </div>
     </div>
   );
 }

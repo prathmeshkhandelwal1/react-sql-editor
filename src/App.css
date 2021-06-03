@@ -2,13 +2,14 @@
   width: 150px;
   height: 40px;
   border-radius: 5px;
-  background-color: #a35709;
+  background-color: #962d2d;
   color: white;
   font-family: sans-serif;
   cursor: pointer;
   border: none;
   margin-top: 10px;
   margin-left: 30px;
+  outline: none;
 }
 
 .tile2 {

@@ -6,6 +6,7 @@ import "./App.css";
 import Loader from "./Util/Loader/Loader";
 import Page from "./Components/RulePage/Page";
 import alasql from "alasql";
+import Error from "./Components/Error/Error";
 
 const App = () => {
   const [query, setquery] = useState(
@@ -15,31 +16,43 @@ const App = () => {
   const [data, setData] = useState(null);
   const [result, setResult] = useState(null);
   const [err, setErr] = useState(null);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    if (data) {
+    if (data && !hasError) {
+      console.log(query);
       alasql
         .promise(query, [data])
         .then(function (data) {
           setData(null);
+          console.log(data);
           setResult(data);
         })
         .catch((e) => {
           console.log(e);
-          setErr(e);
+          setErr("Syntax Error!");
+          setHasError(true);
         });
     }
   });
 
   const handleQuery = (e) => {
+    console.log(e);
     setquery(e);
+  };
+
+  const hasErrorHandler = () => {
+    setHasError(false);
+    setErr(null);
+    setData(null);
+    setquery("SELECT * FROM CSV(?, {headers: true, separator:','})");
   };
 
   const onSubmit = () => {
     // we can connect query to backend here!
     // query has been updated to state
     //showing dummy data due to lack of backend
-
+    setResult(null);
     setLoading(true);
     fetch(
       "https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/customers.csv"
@@ -51,7 +64,8 @@ const App = () => {
       })
       .catch((e) => {
         console.log(e);
-        setErr(e);
+        setErr("Api could'nt be fetched!");
+        setHasError(true);
       });
   };
 
@@ -73,10 +87,17 @@ const App = () => {
 
   return (
     <>
-      {err ? <p>Error</p> : null}
+      {hasError ? (
+        <Error
+          hasError={hasError}
+          hasErrorHandler={hasErrorHandler}
+          err={err}
+        />
+      ) : null}
+
       <Nav download={download} />
       <div style={{ display: "flex" }}>
-        <div style={{height:'90vh', background:'#2C2828'}}>
+        <div style={{ height: "90vh", background: "#2C2828" }}>
           <Editor query={query} handleQuery={handleQuery} />
           <div className="tile2">
             <button onClick={onSubmit} className="btn">
@@ -101,13 +122,11 @@ const App = () => {
             justifyContent: "center",
             alignItems: "center",
             width: "50vw",
-            background: "#1b1a17"
+            background: "#1b1a17",
           }}
         >
           {loading ? (
-            <Loader
-              
-            />
+            <Loader />
           ) : result ? (
             <Result result={result} />
           ) : (
