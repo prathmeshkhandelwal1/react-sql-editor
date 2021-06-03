@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sql-editor-prathmesh/static/css/main.f3a2796f.chunk.css",
+    "main.js": "/sql-editor-prathmesh/static/js/main.b30db6d5.chunk.js",
+    "main.js.map": "/sql-editor-prathmesh/static/js/main.b30db6d5.chunk.js.map",
+    "runtime-main.js": "/sql-editor-prathmesh/static/js/runtime-main.bd089e11.js",
+    "runtime-main.js.map": "/sql-editor-prathmesh/static/js/runtime-main.bd089e11.js.map",
+    "static/js/2.f95b0df5.chunk.js": "/sql-editor-prathmesh/static/js/2.f95b0df5.chunk.js",
+    "static/js/2.f95b0df5.chunk.js.map": "/sql-editor-prathmesh/static/js/2.f95b0df5.chunk.js.map",
+    "static/js/3.3f1d6b26.chunk.js": "/sql-editor-prathmesh/static/js/3.3f1d6b26.chunk.js",
+    "static/js/3.3f1d6b26.chunk.js.map": "/sql-editor-prathmesh/static/js/3.3f1d6b26.chunk.js.map",
+    "index.html": "/sql-editor-prathmesh/index.html",
+    "static/css/main.f3a2796f.chunk.css.map": "/sql-editor-prathmesh/static/css/main.f3a2796f.chunk.css.map",
+    "static/js/2.f95b0df5.chunk.js.LICENSE.txt": "/sql-editor-prathmesh/static/js/2.f95b0df5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bd089e11.js",
+    "static/js/2.f95b0df5.chunk.js",
+    "static/css/main.f3a2796f.chunk.css",
+    "static/js/main.b30db6d5.chunk.js"
+  ]
+}
